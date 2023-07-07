@@ -6,8 +6,22 @@ import { Button, Card, CardGroup, Container } from "react-bootstrap";
 import { FaTwitter, FaTumblr } from "react-icons/fa";
 
 function App() {
+  const [quote, setQuote] = useState(
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante"
+  );
+
+  const quotes = ["New quote 1", "New quote 2", "New quote 3"];
+
+  const changColor = () => {};
+
+  const generateRandomQuote = () => {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    setQuote(quotes[randomIndex]);
+    quote()
+  };
+
   return (
-    <div className="card-container">
+    <Container className="card-container">
       <Card
         style={{
           display: "flex",
@@ -22,37 +36,48 @@ function App() {
 
         <Card.Body>
           <blockquote className="blockquote mb-0">
-            <p>
-              {" "}
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              posuere erat a ante.{" "}
+            <p className="text" id="text">
+              {quote}
             </p>
             <footer
               style={{ display: "flex", justifyContent: "flex-end" }}
-              className="blockquote-footer"
+              className="author"
+              id="author"
             >
-              Someone famous in <cite title="Source Title">Source Title</cite>
+              Someone famous in
             </footer>
           </blockquote>
         </Card.Body>
-        <Button style={{ width: 150 }} variant="primary">
+        <Button
+          onClick={generateRandomQuote}
+          id="new-quote"
+          style={{ width: 150 }}
+          variant="primary"
+        >
           New Quote
         </Button>
         <div style={{ margin: 2, padding: 2 }} className="share-buttons">
-          <Button
-            aria-label="Share on Twitter"
-            style={{ margin: 2 }}
-            className="mr-2"
-            variant="outline-primary"
+          <a
+            target="_blank"
+            href="'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text="
           >
+            <Button
+              aria-label="Share on Twitter"
+              style={{ margin: 2 }}
+              className="mr-2"
+              variant="outline-primary"
+            >
               <FaTwitter />
-          </Button>
-          <Button aria-label="Share on Tumblr" variant="outline-primary">
-            <FaTumblr />{" "}
-          </Button>
+            </Button>
+          </a>
+          <a target="_blank" href="#">
+            <Button aria-label="Share on Tumblr" variant="outline-primary">
+              <FaTumblr />
+            </Button>
+          </a>
         </div>
       </Card>
-    </div>
+    </Container>
   );
 }
 
