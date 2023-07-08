@@ -9,15 +9,24 @@ function App() {
   const [quote, setQuote] = useState(
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante"
   );
+  const [author, setAuthor] = useState("Someone famous");
 
-  const quotes = ["New quote 1", "New quote 2", "New quote 3"];
+  const quotes = [
+    {
+      quote: "quote1",
+      author: "author1",
+    },
+    { quote: "quote2", author: "author2" },
+    { quote: "quote3", author: "author3" },
+  ];
 
   const changColor = () => {};
 
   const generateRandomQuote = () => {
     const randomIndex = Math.floor(Math.random() * quotes.length);
-    setQuote(quotes[randomIndex]);
-    quote()
+    setQuote(quotes[randomIndex].quote)
+    setAuthor(quotes[randomIndex].author);
+  
   };
 
   return (
@@ -44,7 +53,7 @@ function App() {
               className="author"
               id="author"
             >
-              Someone famous in
+             {author}
             </footer>
           </blockquote>
         </Card.Body>
