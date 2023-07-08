@@ -76,8 +76,8 @@ function App() {
         </Button>
         <div style={{ margin: 2, padding: 2 }} className="share-buttons">
           <a
-            target="_blank"
-            href="'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text="
+            target="_top"
+            href="https://twitter.com/intent/tweet?"
           >
             <Button
               aria-label="Share on Twitter"
@@ -88,7 +88,7 @@ function App() {
               <FaTwitter />
             </Button>
           </a>
-          <a target="_blank" href="#">
+          <a target="_blank" href="https://www.tumblr.com">
             <Button style={{color:color}} aria-label="Share on Tumblr" variant="outline-primary">
               <FaTumblr />
             </Button>
