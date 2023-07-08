@@ -44,7 +44,7 @@ function App() {
           alignItems: "center",
           justifyContent: "center",
           height: "100%",
-          transition: 'opacity 0.3s ease'
+          transition: 'opacity 0.5s ease'
 
           
         }}
