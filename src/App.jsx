@@ -10,6 +10,7 @@ function App() {
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante"
   );
   const [author, setAuthor] = useState("Someone famous");
+  const [color, setColor] = useState("#000000");
 
   const quotes = [
     {
@@ -20,19 +21,23 @@ function App() {
     { quote: "quote3", author: "author3" },
   ];
 
-  const changColor = () => {};
+  const colors = ["#FF0000", "#00FF00", "#0000FF", "#FF00FF", "#FFFF00"];
 
   const generateRandomQuote = () => {
     const randomIndex = Math.floor(Math.random() * quotes.length);
-    setQuote(quotes[randomIndex].quote)
+    const changColor = Math.floor(Math.random() * colors.length);
+    setQuote(quotes[randomIndex].quote);
     setAuthor(quotes[randomIndex].author);
-  
+    setColor(colors[changColor]);
   };
 
   return (
+    <div className="app-container" style={{ backgroundColor: color, width: '100vw', height: '100vh' }}> 
+
     <Container className="card-container">
       <Card
         style={{
+         color:color,
           display: "flex",
           flexDirection: "column",
           top: 200,
@@ -53,7 +58,7 @@ function App() {
               className="author"
               id="author"
             >
-             {author}
+              {author}
             </footer>
           </blockquote>
         </Card.Body>
@@ -87,6 +92,7 @@ function App() {
         </div>
       </Card>
     </Container>
+    </div>
   );
 }
 
