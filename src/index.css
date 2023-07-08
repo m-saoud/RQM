@@ -23,6 +23,23 @@ body {
     justify-content: center;
     align-items: center;
   }
+  .quote-card {
+    transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -ms-transition: opacity 0.3s ease;
+    -o-transition: opacity 0.3s ease;
+    
+}
+  
+  .quote-card.fade-enter {
+    opacity: 0;
+  }
+  
+  .quote-card.fade-enter-active {
+    opacity: 1;
+  }
+  
 /*   
   button {
   border-radius: 8px;

@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Card, CardGroup, Container } from "react-bootstrap";
+import { Button, Card, CardGroup, Container, Fade } from "react-bootstrap";
 import { FaTwitter, FaTumblr } from "react-icons/fa";
 
 function App() {
@@ -10,15 +10,15 @@ function App() {
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante"
   );
   const [author, setAuthor] = useState("Someone famous");
-  const [color, setColor] = useState("#000000");
+  const [color, setColor] = useState("# 000000");
 
   const quotes = [
     {
-      quote: "quote1",
-      author: "author1",
+      quote: "Whatever the mind of man can conceive and believe, it can achieve.",
+      author: "- Napoleon Hill",
     },
-    { quote: "quote2", author: "author2" },
-    { quote: "quote3", author: "author3" },
+    { quote: "Dream big and dare to fail.", author: "- Norman Vaughan" },
+    { quote: "Life isn’t about getting and having, it’s about giving and being.", author: "- Kevin Kruse" },
   ];
 
   const colors = ["#FF0000", "#00FF00", "#0000FF", "#FF00FF", "#FFFF00"];
@@ -35,7 +35,7 @@ function App() {
     <div className="app-container" style={{ backgroundColor: color, width: '100vw', height: '100vh' }}> 
 
     <Container className="card-container">
-      <Card
+      <Card className="quote-card"
         style={{
          color:color,
           display: "flex",
@@ -44,6 +44,9 @@ function App() {
           alignItems: "center",
           justifyContent: "center",
           height: "100%",
+          transition: 'opacity 0.3s ease'
+
+          
         }}
       >
         <h1>Quote Machine</h1>
@@ -65,8 +68,9 @@ function App() {
         <Button
           onClick={generateRandomQuote}
           id="new-quote"
-          style={{ width: 150 }}
-          variant="primary"
+          style={{ width: 150, color:color}}
+            variant="outline-primary"
+            
         >
           New Quote
         </Button>
@@ -77,7 +81,7 @@ function App() {
           >
             <Button
               aria-label="Share on Twitter"
-              style={{ margin: 2 }}
+              style={{ margin: 2,color:color }}
               className="mr-2"
               variant="outline-primary"
             >
@@ -85,7 +89,7 @@ function App() {
             </Button>
           </a>
           <a target="_blank" href="#">
-            <Button aria-label="Share on Tumblr" variant="outline-primary">
+            <Button style={{color:color}} aria-label="Share on Tumblr" variant="outline-primary">
               <FaTumblr />
             </Button>
           </a>
