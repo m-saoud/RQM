@@ -68,8 +68,8 @@ function App() {
         <Button
           onClick={generateRandomQuote}
           id="new-quote"
-          style={{ width: 150, color:color}}
-            variant="outline-primary"
+          style={{ width: 150, backgroundColor:color,border:'none', fontWeight:'bold'}}
+            variant="primary"
             
         >
           New Quote
@@ -81,7 +81,7 @@ function App() {
           >
             <Button
               aria-label="Share on Twitter"
-              style={{ margin: 2,color:color }}
+              style={{ margin: 2,color:color,borderColor:color }}
               className="mr-2"
               variant="outline-primary"
             >
@@ -89,7 +89,7 @@ function App() {
             </Button>
           </a>
           <a target="_blank" href="https://www.tumblr.com">
-            <Button style={{color:color}} aria-label="Share on Tumblr" variant="outline-primary">
+            <Button style={{color:color,borderColor:color }} aria-label="Share on Tumblr" variant="outline-primary">
               <FaTumblr />
             </Button>
           </a>
