@@ -1,10 +1,7 @@
 import { useState } from "react";
-import Button from "./components/button";
-import Card from "./components/Card";
-
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container } from "react-bootstrap";
+import { Container, Card, Button as BootstrapButton } from "react-bootstrap";
 
 function App() {
   const [quote, setQuote] = useState("");
@@ -29,18 +26,57 @@ function App() {
 
   const generateRandomQuote = () => {
     const randomIndex = Math.floor(Math.random() * quotes.length);
-    const changeColor = Math.floor(Math.random() * colors.length);
+    const randomColorIndex = Math.floor(Math.random() * colors.length);
     setQuote(quotes[randomIndex].quote);
     setAuthor(quotes[randomIndex].author);
-    setColor(colors[changeColor]);
+    setColor(colors[randomColorIndex]);
   };
 
   return (
     <div className="app-container" style={{ backgroundColor: color }}>
       <Container className="card-container">
-        <Card quote={quote} author={author} color={color}>
-          <Button generateRandomQuote={generateRandomQuote} />
+        <Card
+          className="quote-card"
+          style={{
+            color: color,
+            display: "flex",
+            flexDirection: "column",
+            top: 200,
+            alignItems: "center",
+            justifyContent: "center",
+            height: "100%",
+            transition: "opacity 0.5s ease",
+          }}
+        >
+          <h1>Quote Machine</h1>
+          <Card.Body>
+            <blockquote className="blockquote mb-0">
+              <p className="text" id="text">
+                {quote}
+              </p>
+              <footer
+                style={{ display: "flex", justifyContent: "flex-end" }}
+                className="author"
+                id="author"
+              >
+                {author}
+              </footer>
+            </blockquote>
+          </Card.Body>
+          <BootstrapButton
+          onClick={generateRandomQuote}
+          id="new-quote"
+          style={{
+            width: 150,
+            border: "none",
+            fontWeight: "bold",
+            padding: 10,
+          }}
+        >
+          Press Here
+        </BootstrapButton>
         </Card>
+        
       </Container>
     </div>
   );
